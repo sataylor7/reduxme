@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import routes from './config/lazyLoad';
+import { connect } from 'react-redux';
+import { updateUnicornsName } from './../App/unicorns/unicorns.creators';
 
 /**
  *  none of the routes folder or index/app.js get bundled into the micro-app library
@@ -18,14 +20,33 @@ const generatingLinks = route => {
 };
 const mappingLinks = routes.map(generatingLinks);
 
-const Homepage = () => (
+const Homepage = ({ unicorns, updateUnicornsName }) => (
   <div className="homepage">
     <header className="homepage-header">
       <h1> Welcome to Unicorns App </h1>
-
+      <h2> Hi there {unicorns.name}</h2>
       {mappingLinks}
+
+      <button
+        type="button"
+        onClick={e => {
+          e.preventDefault();
+          updateUnicornsName({ name: 'Brutus' });
+        }}
+      >
+        Change my name to Brutus
+      </button>
     </header>
   </div>
 );
 
-export default Homepage;
+const mapStateToProps = ({ bobApp }) => {
+  const { unicorns = {} } = bobApp;
+  return {
+    unicorns
+  };
+};
+
+const mapDispatchToProps = { updateUnicornsName };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router';
 import makeActionCreator from '../../utils/redux/makeActionCreator';
 import ACTIONS from './unicorns.actions';
-import api from '../../resource/app.resource';
+// import api from '../../resource/app.resource';
 
 /**
  * @description Clears Unicorns completely
@@ -19,6 +19,9 @@ export const setUnicornsErrors = errors =>
  * @description Update fields on the Unicorns
  * @param {*} payload
  */
+export const updateUnicornsName = payload =>
+  makeActionCreator(ACTIONS.UPDATE_UNICORNS_NAME, payload);
+
 export const updateUnicorns = payload =>
   makeActionCreator(ACTIONS.UPDATE_UNICORNS, payload);
 
@@ -26,20 +29,20 @@ export const updateUnicorns = payload =>
  * @description call the example resource to retreive the example response
  *
  */
-export const exampleMethod = values => async (dispatch, getState) => {
-  dispatch(clearUnicornsErrors());
+// export const exampleMethod = values => async (dispatch, getState) => {
+//   dispatch(clearUnicornsErrors());
 
-  let user;
-  try {
-    user = await api.facade.members.createMember(values);
-  } catch (e) {
-    // determine what to do with errors
-    dispatch(setUnicornsErrors(e.errors));
-    return;
-  }
+//   let user;
+//   try {
+//     user = await api.facade.members.createMember(values);
+//   } catch (e) {
+//     // determine what to do with errors
+//     dispatch(setUnicornsErrors(e.errors));
+//     return;
+//   }
 
-  // update user in the redux store
+//   // update user in the redux store
 
-  // update this to where it should go
-  dispatch(push('/'));
-};
+//   // update this to where it should go
+//   dispatch(push('/'));
+// };
