@@ -55,7 +55,6 @@
     "eslint-config-prettier": "3.1.0",
     "eslint-plugin-prettier": "3.0.0",
     "figlet": "1.2.1",
-    "hmk": "git+ssh://git@github.com:spiritclips/hmk.git",
     "html-to-draftjs": "1.4.0",
     "inquirer": "6.2.2",
     "js-cookie": "2.2.1",
