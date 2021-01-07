@@ -6,6 +6,5 @@ import bobApp from './App/app.reducer';
 export default history =>
   combineReducers({
     router: connectRouter(history),
-    display: ScreenSizeReducer,
     bobApp
   });

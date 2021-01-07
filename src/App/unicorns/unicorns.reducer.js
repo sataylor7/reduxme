@@ -1,11 +1,11 @@
+import createReducer from '../../utils/redux/createReducer';
 import {
   setErrorsHandler,
-  clearErrorsHandler,
-  createReducer
-} from "hmk/packages/hmk-state/lib/hmk-state";
-import { updateUnicornsHandler } from "./unicorns.handlers";
-import ACTIONS from "./unicorns.actions";
-import initialState from "./unicorns.model";
+  clearErrorsHandler
+} from '../../utils/redux/error.handlers';
+import { updateUnicornsHandler } from './unicorns.handlers';
+import ACTIONS from './unicorns.actions';
+import initialState from './unicorns.model';
 
 const handlers = {
   [ACTIONS.UPDATE_UNICORNS]: updateUnicornsHandler,

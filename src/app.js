@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
-  import UnicornsContainer from "./App/unicorns/unicorns.container"; 
+import UnicornsContainer from './App/unicorns/unicorns.container';
 
-import "./app.css";
+import './app.css';
 
-import Routes from "./routes";
+import Routes from './routes';
 
 // THIS FILE IS NOT EXPORTED IT IS ONLY USED FOR LOCAL DEVING
 
@@ -15,7 +15,7 @@ class App extends Component {
     const { isAuthenticated } = this.props;
     return (
       <div id="app">
-          <Routes isAuthenticated={isAuthenticated} />
+        <Routes isAuthenticated={isAuthenticated} />
       </div>
     );
   }
@@ -23,15 +23,10 @@ class App extends Component {
 
 export const AppTest = App;
 
-const mapState = ({ auth }) => ({
+const mapState = ({ auth = {} }) => ({
   isAuthenticated: auth.isAuthenticated
 });
 
 const mD = {};
 
-export default withRouter(
-  connect(
-    mapState,
-    null
-  )(App)
-);
+export default withRouter(connect(mapState, null)(App));

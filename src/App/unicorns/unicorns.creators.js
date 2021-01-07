@@ -1,7 +1,7 @@
-import { push } from "connected-react-router";
-import { makeActionCreator } from "hmk/packages/hmk-state/lib/hmk-state";
-import ACTIONS from "./unicorns.actions";
-import api from "../../resource/app.resource";
+import { push } from 'connected-react-router';
+import makeActionCreator from '../../utils/redux/makeActionCreator';
+import ACTIONS from './unicorns.actions';
+import api from '../../resource/app.resource';
 
 /**
  * @description Clears Unicorns completely
@@ -19,7 +19,7 @@ export const setUnicornsErrors = errors =>
  * @description Update fields on the Unicorns
  * @param {*} payload
  */
-export const updateUnicorns= payload =>
+export const updateUnicorns = payload =>
   makeActionCreator(ACTIONS.UPDATE_UNICORNS, payload);
 
 /**
@@ -41,5 +41,5 @@ export const exampleMethod = values => async (dispatch, getState) => {
   // update user in the redux store
 
   // update this to where it should go
-  dispatch(push("/"));
+  dispatch(push('/'));
 };
